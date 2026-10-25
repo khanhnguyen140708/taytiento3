@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html lang="vi">
   <head>
     <meta charset="utf8" />
     <meta
@@ -1263,6 +1263,200 @@
         }
         html {
           scroll-behavior: auto;
+        }
+      }
+
+      /* ===== Tối ưu cho điện thoại (chỉ ghi đè, không đổi phần còn lại) ===== */
+      .nav.solid {
+        -webkit-backdrop-filter: blur(10px);
+      }
+      .gate {
+        overflow-y: auto;
+      }
+      .lb img {
+        touch-action: pan-x pan-y pinch-zoom;
+      }
+      .lb button {
+        min-height: 44px;
+        min-width: 44px;
+      }
+
+      /* Máy cảm ứng: không để hiệu ứng hover bị "dính" sau khi chạm */
+      @media (hover: none) {
+        .names li:hover {
+          transform: none;
+        }
+        .mat:hover {
+          padding-left: 0.6rem;
+        }
+        .btn.primary:hover,
+        .btn.ghost:hover {
+          transform: none;
+        }
+      }
+
+      @media (max-width: 820px) {
+        /* lá cờ góc phải không đè lên tiêu đề/đoạn văn */
+        .poem .flag {
+          width: 6.5rem;
+          opacity: 0.5;
+        }
+        .poem {
+          padding-block: 4.5rem 4.5rem;
+        }
+        .poem dt {
+          font-size: 0.76rem;
+          letter-spacing: 0.14em;
+        }
+      }
+
+      @media (max-width: 720px) {
+        /* Hiện lại menu: một hàng cuộn ngang dưới thanh logo / nhạc */
+        .nav .wrap {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) auto;
+          grid-template-rows: 3.2rem auto;
+          height: auto;
+          gap: 0 0.6rem;
+        }
+        .nav .brand {
+          grid-column: 1;
+          grid-row: 1;
+          min-width: 0;
+        }
+        .nav .music {
+          grid-column: 2;
+          grid-row: 1;
+          padding: 0.4rem 0.8rem 0.4rem 0.7rem;
+          min-height: 40px;
+          font-size: 0.8rem;
+          white-space: nowrap;
+        }
+        .nav .links {
+          display: flex;
+          grid-column: 1 / -1;
+          grid-row: 2;
+          gap: 1.5rem;
+          font-size: 0.88rem;
+          overflow-x: auto;
+          white-space: nowrap;
+          scrollbar-width: none;
+          -webkit-overflow-scrolling: touch;
+          padding-bottom: 0.15rem;
+        }
+        .nav .links::-webkit-scrollbar {
+          display: none;
+        }
+        .nav .links a {
+          color: var(--mist);
+          padding: 0.55rem 0;
+          flex: none;
+        }
+        .nav:not(.solid) .links {
+          text-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
+        }
+        .progress {
+          top: calc(env(safe-area-inset-top, 0px) + 5.8rem);
+        }
+        .stage {
+          padding-block: calc(8.6rem + env(safe-area-inset-top, 0px)) 0;
+        }
+
+        .kicker {
+          font-size: 0.78rem;
+          letter-spacing: 0.16em;
+          line-height: 1.5;
+        }
+        .eyebrow {
+          font-size: 0.78rem;
+          letter-spacing: 0.2em;
+        }
+        .fact span {
+          font-size: 0.86rem;
+          max-width: none;
+        }
+        .btn {
+          min-height: 48px;
+          justify-content: center;
+        }
+        .cta .btn {
+          flex: 1 1 100%;
+        }
+
+        .route-sec {
+          padding-block: 4.5rem 4.5rem;
+        }
+        .route-head {
+          margin-bottom: 2.5rem;
+        }
+        .stop .tag {
+          font-size: 0.82rem;
+        }
+        .essay {
+          padding-block: 4.5rem 4rem;
+        }
+        .mats {
+          margin-top: 4rem;
+        }
+        .team {
+          padding-block: 4.5rem 4.5rem;
+        }
+        .names li {
+          padding: 0.9rem 1rem;
+        }
+        .scroll .hint {
+          font-size: 0.84rem;
+        }
+        footer {
+          font-size: 0.9rem;
+        }
+      }
+
+      @media (max-width: 620px) {
+        /* Bài viết: gọn khung góc, bỏ căn đều hai bên, đọc rõ hơn */
+        .page {
+          padding: 2.4rem 1.25rem 2.2rem;
+        }
+        .page::before,
+        .page::after {
+          width: 1.7rem;
+          height: 1.7rem;
+          opacity: 0.45;
+        }
+        .page::before {
+          top: 0.5rem;
+          left: 0.5rem;
+        }
+        .page::after {
+          bottom: 0.5rem;
+          right: 0.5rem;
+        }
+        .page p {
+          text-align: left;
+          hyphens: manual;
+          text-indent: 1.2rem;
+        }
+        .page p:first-child::first-letter {
+          font-size: 3.4rem;
+        }
+        .page p.dim {
+          opacity: 0.82;
+        }
+        .lb {
+          padding: 4rem max(8px, env(safe-area-inset-left, 0px)) 2rem;
+        }
+      }
+
+      @media (max-width: 380px) {
+        .nav .music #musicLabel {
+          font-size: 0.76rem;
+        }
+        .nav .brand {
+          font-size: 1.5rem;
+        }
+        .wrap {
+          padding-left: max(14px, env(safe-area-inset-left, 0px));
+          padding-right: max(14px, env(safe-area-inset-right, 0px));
         }
       }
     </style>
