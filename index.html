@@ -1501,6 +1501,85 @@
           color: var(--mist);
         }
       }
+
+      /* ===== Pha trộn nền ở chỗ giao nhau giữa các phần ===== */
+      .poem::before,
+      .poem::after,
+      .team::before,
+      .team::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        right: 0;
+        z-index: 0;
+        pointer-events: none;
+      }
+      /* Hero tối -> trang giấy */
+      .poem::before {
+        top: 0;
+        height: 8rem;
+        background: linear-gradient(
+          to bottom,
+          #140a08 0%,
+          rgba(20, 10, 8, 0.82) 25%,
+          rgba(20, 10, 8, 0.5) 52%,
+          rgba(20, 10, 8, 0.18) 78%,
+          rgba(20, 10, 8, 0) 100%
+        );
+      }
+      /* Trang giấy -> đường hành quân tối */
+      .poem::after {
+        bottom: 0;
+        height: 8rem;
+        background: linear-gradient(
+          to bottom,
+          rgba(20, 10, 8, 0) 0%,
+          rgba(20, 10, 8, 0.18) 22%,
+          rgba(20, 10, 8, 0.5) 48%,
+          rgba(20, 10, 8, 0.82) 75%,
+          #140a08 100%
+        );
+      }
+      .poem .wrap,
+      .team .wrap {
+        z-index: 1;
+      }
+      /* Bài viết tối -> mảng cờ đỏ */
+      .team::before {
+        top: 0;
+        height: 8rem;
+        background: linear-gradient(
+          to bottom,
+          #21110d 0%,
+          rgba(33, 17, 13, 0.82) 25%,
+          rgba(33, 17, 13, 0.5) 52%,
+          rgba(33, 17, 13, 0.18) 78%,
+          rgba(33, 17, 13, 0) 100%
+        );
+      }
+      /* Mảng cờ đỏ -> chân trang */
+      .team::after {
+        bottom: 0;
+        height: 6rem;
+        background: linear-gradient(
+          to bottom,
+          rgba(20, 10, 8, 0) 0%,
+          rgba(20, 10, 8, 0.2) 25%,
+          rgba(20, 10, 8, 0.55) 55%,
+          rgba(20, 10, 8, 0.86) 80%,
+          #140a08 100%
+        );
+      }
+      @media (max-width: 720px) {
+        .poem::before,
+        .poem::after,
+        .team::before {
+          height: 5.5rem;
+        }
+        .team::after {
+          height: 4rem;
+        }
+      }
     </style>
 
     <header class="nav" id="nav">
